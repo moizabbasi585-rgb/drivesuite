@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #C9A84C;
+  --gold-light: #D4B460;
+  --ds-bg: #0f0e0c;
+  --ds-sidebar: #0a0908;
+  --ds-card: #141210;
+  --ds-border: #2a2520;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--ds-bg);
+  color: #f5f0e8;
+  font-family: -apple-system, 'Segoe UI', sans-serif;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ds-sidebar);
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2520;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+input, textarea {
+  background: #0f0e0c;
+  border: 0.5px solid #2a2520;
+  border-radius: 8px;
+  color: #f5f0e8;
+  padding: 8px 12px;
+  font-size: 13px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--gold);
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.15s;
+}
