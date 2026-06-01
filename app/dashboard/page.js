@@ -6,66 +6,55 @@ import Sidebar from '../../components/Sidebar'
 
 const tools = [
   {
-    name: 'Pupil Progress Log',
-    desc: 'Track DVSA skill levels for each pupil. Share a live progress view with parents.',
-    longDesc: 'Your pupils progress through 45 DVSA skills rated 1–5. Parents get a beautiful shareable link showing real-time progress rings and skill badges.',
-    icon: '◎',
+    name: 'Hours Predictor',
+    desc: 'Predict how many hours a pupil needs before they are test ready.',
+    longDesc: 'Enter pupil details and driving history — the tool predicts how many hours they will likely need before their test. Great for setting expectations with new pupils and their parents.',
+    icon: '⏱',
     tag: 'Live',
     tagColor: '#4a7c59',
     tagBg: '#4a7c5922',
-    url: 'YOUR_PUPIL_PROGRESS_URL',
+    url: 'https://driving-school-predictor.vercel.app/',
     color: '#4a7c59',
   },
   {
-    name: 'Review Multiplier',
-    desc: 'Generate Google review drafts. Send pupils your link, they paste it on Google.',
-    longDesc: 'Pupil clicks your unique link, picks tags describing you, gets an AI-written review draft, copies it and lands on your Google Maps page ready to paste.',
-    icon: '★',
-    tag: 'Live',
-    tagColor: '#4a7c59',
-    tagBg: '#4a7c5922',
-    url: 'YOUR_REVIEW_MULTIPLIER_URL',
-    color: '#4a7abf',
-  },
-  {
     name: 'PassCard Generator',
-    desc: 'Create Instagram story pass cards. WhatsApp them to pupils instantly after test.',
-    longDesc: 'Enter pupil name, upload their photo, pick a message — generates a professional 1080×1920 branded story card ready to WhatsApp in seconds.',
-    icon: '⬡',
+    desc: 'Create a branded Instagram story pass card and WhatsApp it to your pupil instantly.',
+    longDesc: 'Enter pupil name, upload their photo, pick a pass message — generates a professional 1080×1920 branded story card in seconds. Download and WhatsApp it to them right after their test.',
+    icon: '🎉',
     tag: 'Popular',
     tagColor: '#C9A84C',
     tagBg: '#C9A84C22',
-    url: 'YOUR_PASSCARD_URL',
+    url: 'https://diveresult.vercel.app/',
     color: '#C9A84C',
   },
   {
-    name: 'Quote Generator',
-    desc: 'Customers get an instant price estimate and send it to you via WhatsApp.',
-    longDesc: 'Customer visits your page, selects project type, sets dimensions with sliders — gets an instant estimate. Sends their details to you via WhatsApp automatically.',
-    icon: '◷',
+    name: 'Google Review Tool',
+    desc: 'Send pupils a link — they get an AI-written review draft and land on your Google page.',
+    longDesc: 'Pupil clicks your unique link, picks tags describing you, gets an AI-written review draft ready to copy, then lands directly on your Google Maps page to paste it. More 5-star reviews, zero effort.',
+    icon: '⭐',
     tag: 'Live',
-    tagColor: '#4a7c59',
-    tagBg: '#4a7c5922',
-    url: 'YOUR_QUOTE_GENERATOR_URL',
-    color: '#9a6abf',
+    tagColor: '#4a7abf',
+    tagBg: '#4a7abf22',
+    url: 'https://drive-booster.vercel.app/',
+    color: '#4a7abf',
   },
   {
-    name: 'Job Pipeline',
-    desc: 'Track every lead from first contact through to completed and paid.',
-    longDesc: 'Add leads, move them through stages: New → Quoted → Accepted → In Progress → Done. Calculate totals, flag follow-ups, never lose a job again.',
-    icon: '⊞',
+    name: 'Pupil Progress Chart',
+    desc: 'Track DVSA skill levels for each pupil and share live progress with parents.',
+    longDesc: 'Your pupils progress through DVSA skills rated 1–5. Parents get a beautiful shareable link showing real-time progress rings and skill badges. Looks premium, builds trust with families.',
+    icon: '📈',
     tag: 'Live',
-    tagColor: '#4a7c59',
-    tagBg: '#4a7c5922',
-    url: 'YOUR_JOB_PIPELINE_URL',
-    color: '#bf6a4a',
+    tagColor: '#9a6abf',
+    tagBg: '#9a6abf22',
+    url: 'https://driving-school-portal-n7b1.vercel.app/',
+    color: '#9a6abf',
   },
 ]
 
 const activity = [
   { text: 'Pass card sent — Sarah M.', time: '2h ago', color: '#C9A84C' },
   { text: 'New Google review — Tom K.', time: 'Yesterday', color: '#4a7abf' },
-  { text: 'Pupil progress updated — Aisha R.', time: '2 days ago', color: '#4a7c59' },
+  { text: 'Pupil progress updated — Aisha R.', time: '2 days ago', color: '#9a6abf' },
   { text: 'Pass card sent — Daniel W.', time: '3 days ago', color: '#C9A84C' },
   { text: 'New Google review — Priya S.', time: '4 days ago', color: '#4a7abf' },
 ]
@@ -91,13 +80,9 @@ export default function DashboardPage() {
     init()
   }, [router])
 
-  // Close modal on escape key
   useEffect(() => {
     const handler = (e) => {
-      if (e.key === 'Escape') {
-        setSelectedTool(null)
-        setShowToolsModal(false)
-      }
+      if (e.key === 'Escape') { setSelectedTool(null); setShowToolsModal(false) }
     }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
@@ -121,7 +106,7 @@ export default function DashboardPage() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 28 }}>
           <div>
             <div style={{ fontSize: 20, fontWeight: 500, color: '#f0e8d8' }}>Good morning, {firstName} 👋</div>
-            <div style={{ fontSize: 13, color: '#6b6055', marginTop: 2 }}>Here's what's happening with your business today</div>
+            <div style={{ fontSize: 13, color: '#6b6055', marginTop: 2 }}>Here's what's happening with your driving school today</div>
           </div>
           <div style={{
             width: 36, height: 36, borderRadius: '50%', background: '#1e1a10',
@@ -137,8 +122,8 @@ export default function DashboardPage() {
           {[
             { label: 'Active pupils', val: '12', change: '+2 this week', changeColor: '#4a7c59' },
             { label: 'Reviews collected', val: '34', change: '+5 this month', changeColor: '#4a7abf' },
-            { label: 'Pass cards sent', val: '8', change: 'This month', changeColor: '#6b6055' },
-            { label: 'Quotes sent', val: '3', change: '£2,400 pipeline', changeColor: '#4a7c59' },
+            { label: 'Pass cards sent', val: '8', change: 'This month', changeColor: '#C9A84C' },
+            { label: 'Avg hours predicted', val: '38', change: 'Per new pupil', changeColor: '#9a6abf' },
           ].map((stat, i) => (
             <div key={i} style={{
               background: '#141210',
@@ -152,20 +137,20 @@ export default function DashboardPage() {
           ))}
         </div>
 
-        {/* Tools section — click to open modal */}
+        {/* Tools header */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
           <div style={{ fontSize: 13, fontWeight: 500, color: '#9a9088' }}>Your tools</div>
           <div
             onClick={() => setShowToolsModal(true)}
             style={{ fontSize: 12, color: '#C9A84C', cursor: 'pointer', textDecoration: 'underline' }}
           >
-            View all 5 →
+            View all {tools.length} →
           </div>
         </div>
 
-        {/* Tools preview grid — click any to open modal */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginBottom: 24 }}>
-          {tools.slice(0, 5).map((tool, i) => (
+        {/* Tools grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 14, marginBottom: 24 }}>
+          {tools.map((tool, i) => (
             <div
               key={i}
               onClick={() => { setSelectedTool(tool); setShowToolsModal(true) }}
@@ -174,29 +159,28 @@ export default function DashboardPage() {
                 borderRadius: 12, padding: 18, cursor: 'pointer',
                 transition: 'border-color 0.15s, background 0.15s', position: 'relative',
               }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = '#C9A84C55'; e.currentTarget.style.background = '#1a1610' }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = `${tool.color}44`; e.currentTarget.style.background = '#1a1712' }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = '#2a2520'; e.currentTarget.style.background = '#141210' }}
             >
-              <div style={{
-                width: 40, height: 40, borderRadius: 10,
-                background: '#1e1a10', border: '0.5px solid #2a2520',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                marginBottom: 12, fontSize: 20, color: tool.color
-              }}>{tool.icon}</div>
-              <div style={{ fontSize: 14, fontWeight: 500, color: '#e8dcc8', marginBottom: 4 }}>{tool.name}</div>
-              <div style={{ fontSize: 12, color: '#6b6055', lineHeight: 1.5 }}>{tool.desc}</div>
-              <div style={{
-                display: 'inline-block', fontSize: 10, padding: '2px 8px',
-                borderRadius: 10, marginTop: 10, background: tool.tagBg, color: tool.tagColor
-              }}>{tool.tag}</div>
-              <span style={{ position: 'absolute', top: 16, right: 16, color: '#3a3530', fontSize: 16 }}>↗</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                <div style={{
+                  width: 44, height: 44, borderRadius: 12, flexShrink: 0,
+                  background: '#1e1a10', border: `0.5px solid ${tool.color}33`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22,
+                }}>
+                  {tool.icon}
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                    <div style={{ fontSize: 14, fontWeight: 500, color: '#e8dcc8' }}>{tool.name}</div>
+                    <div style={{ fontSize: 10, padding: '1px 7px', borderRadius: 10, background: tool.tagBg, color: tool.tagColor }}>{tool.tag}</div>
+                  </div>
+                  <div style={{ fontSize: 12, color: '#6b6055', lineHeight: 1.5 }}>{tool.desc}</div>
+                </div>
+                <div style={{ color: '#3a3530', fontSize: 20, flexShrink: 0 }}>›</div>
+              </div>
             </div>
           ))}
-          <div style={{ background: '#141210', border: '0.5px dashed #2a2520', borderRadius: 12, padding: 18, opacity: 0.4 }}>
-            <div style={{ width: 40, height: 40, borderRadius: 10, background: '#1e1a10', border: '0.5px solid #2a2520', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12, fontSize: 20, color: '#6b6055' }}>+</div>
-            <div style={{ fontSize: 14, fontWeight: 500, color: '#6b6055', marginBottom: 4 }}>More coming soon</div>
-            <div style={{ fontSize: 12, color: '#4a4540', lineHeight: 1.5 }}>New tools added regularly</div>
-          </div>
         </div>
 
         {/* Bottom row */}
@@ -235,86 +219,106 @@ export default function DashboardPage() {
         <div
           onClick={(e) => { if (e.target === e.currentTarget) { setSelectedTool(null); setShowToolsModal(false) } }}
           style={{
-            position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)',
-            backdropFilter: 'blur(4px)', zIndex: 100,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            padding: 24,
+            position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.8)',
+            backdropFilter: 'blur(6px)', zIndex: 100,
+            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24,
           }}
         >
           <div style={{
             background: '#141210', border: '0.5px solid #2a2520',
-            borderRadius: 16, width: '100%', maxWidth: 680,
+            borderRadius: 20, width: '100%', maxWidth: 560,
             maxHeight: '85vh', overflow: 'auto',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.6)',
           }}>
             {/* Modal header */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 24px', borderBottom: '0.5px solid #2a2520' }}>
               <div>
-                <div style={{ fontSize: 17, fontWeight: 500, color: '#f0e8d8' }}>Your DriveSuite Tools</div>
-                <div style={{ fontSize: 12, color: '#6b6055', marginTop: 2 }}>Tap any tool to open it</div>
+                <div style={{ fontSize: 17, fontWeight: 500, color: '#f0e8d8' }}>
+                  {selectedTool ? selectedTool.name : 'Your DriveSuite Tools'}
+                </div>
+                <div style={{ fontSize: 12, color: '#6b6055', marginTop: 2 }}>
+                  {selectedTool ? 'Tool details' : 'Tap any tool to open it'}
+                </div>
               </div>
               <div
                 onClick={() => { setSelectedTool(null); setShowToolsModal(false) }}
-                style={{ width: 32, height: 32, borderRadius: 8, background: '#1e1c18', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#6b6055', fontSize: 18 }}
+                style={{ width: 32, height: 32, borderRadius: 8, background: '#1e1c18', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#9a9088', fontSize: 20 }}
               >×</div>
             </div>
 
-            {/* Tool detail view — when one is selected */}
+            {/* Tool detail */}
             {selectedTool ? (
               <div style={{ padding: 24 }}>
                 <button
                   onClick={() => setSelectedTool(null)}
-                  style={{ background: 'none', border: 'none', color: '#6b6055', fontSize: 13, cursor: 'pointer', marginBottom: 20, padding: 0 }}
+                  style={{ background: 'none', border: 'none', color: '#6b6055', fontSize: 13, cursor: 'pointer', marginBottom: 24, padding: 0, display: 'flex', alignItems: 'center', gap: 4 }}
                 >
-                  ← Back to all tools
+                  ← All tools
                 </button>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
-                  <div style={{ width: 56, height: 56, borderRadius: 14, background: '#1e1a10', border: `1px solid ${selectedTool.color}33`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, color: selectedTool.color }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
+                  <div style={{
+                    width: 64, height: 64, borderRadius: 16,
+                    background: '#1e1a10', border: `1px solid ${selectedTool.color}44`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32,
+                  }}>
                     {selectedTool.icon}
                   </div>
                   <div>
-                    <div style={{ fontSize: 18, fontWeight: 500, color: '#f0e8d8' }}>{selectedTool.name}</div>
-                    <div style={{ display: 'inline-block', fontSize: 11, padding: '2px 8px', borderRadius: 10, marginTop: 4, background: selectedTool.tagBg, color: selectedTool.tagColor }}>{selectedTool.tag}</div>
+                    <div style={{ fontSize: 20, fontWeight: 500, color: '#f0e8d8', marginBottom: 6 }}>{selectedTool.name}</div>
+                    <div style={{ display: 'inline-block', fontSize: 11, padding: '3px 10px', borderRadius: 10, background: selectedTool.tagBg, color: selectedTool.tagColor }}>{selectedTool.tag}</div>
                   </div>
                 </div>
-                <div style={{ fontSize: 14, color: '#9a9088', lineHeight: 1.7, marginBottom: 28 }}>
+                <div style={{ fontSize: 14, color: '#9a9088', lineHeight: 1.8, marginBottom: 28, background: '#0f0e0c', borderRadius: 12, padding: 16, border: '0.5px solid #2a2520' }}>
                   {selectedTool.longDesc}
                 </div>
                 <button
                   onClick={() => window.open(selectedTool.url, '_blank')}
-                  style={{ width: '100%', background: selectedTool.color, color: '#fff', border: 'none', borderRadius: 10, padding: '14px', fontSize: 15, fontWeight: 500, cursor: 'pointer' }}
+                  style={{
+                    width: '100%', background: selectedTool.color,
+                    color: '#fff', border: 'none', borderRadius: 12,
+                    padding: '15px', fontSize: 15, fontWeight: 500, cursor: 'pointer',
+                    boxShadow: `0 4px 20px ${selectedTool.color}44`,
+                  }}
                 >
                   Open {selectedTool.name} →
                 </button>
               </div>
             ) : (
               /* All tools list */
-              <div style={{ padding: 16 }}>
+              <div style={{ padding: '12px 16px' }}>
                 {tools.map((tool, i) => (
                   <div
                     key={i}
                     onClick={() => setSelectedTool(tool)}
                     style={{
-                      display: 'flex', alignItems: 'center', gap: 16,
+                      display: 'flex', alignItems: 'center', gap: 14,
                       padding: '14px 12px', borderRadius: 12, cursor: 'pointer',
                       marginBottom: 4, transition: 'background 0.15s',
-                      border: '0.5px solid transparent',
                     }}
-                    onMouseEnter={e => { e.currentTarget.style.background = '#1a1712'; e.currentTarget.style.borderColor = '#2a2520' }}
-                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'transparent' }}
+                    onMouseEnter={e => e.currentTarget.style.background = '#1a1712'}
+                    onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                   >
-                    <div style={{ width: 48, height: 48, borderRadius: 12, background: '#1e1a10', border: `0.5px solid ${tool.color}33`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, color: tool.color, flexShrink: 0 }}>
+                    <div style={{
+                      width: 52, height: 52, borderRadius: 14, flexShrink: 0,
+                      background: '#1e1a10', border: `0.5px solid ${tool.color}33`,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26,
+                    }}>
                       {tool.icon}
                     </div>
                     <div style={{ flex: 1 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 3 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
                         <div style={{ fontSize: 14, fontWeight: 500, color: '#e8dcc8' }}>{tool.name}</div>
                         <div style={{ fontSize: 10, padding: '1px 7px', borderRadius: 10, background: tool.tagBg, color: tool.tagColor }}>{tool.tag}</div>
                       </div>
                       <div style={{ fontSize: 12, color: '#6b6055', lineHeight: 1.5 }}>{tool.desc}</div>
                     </div>
-                    <div style={{ color: '#3a3530', fontSize: 18, flexShrink: 0 }}>›</div>
+                    <div style={{ color: '#5a5248', fontSize: 22, flexShrink: 0 }}>›</div>
                   </div>
                 ))}
+
+                <div style={{ margin: '8px 12px 12px', padding: '12px 14px', background: '#0f0e0c', borderRadius: 10, border: '0.5px dashed #2a2520', opacity: 0.6 }}>
+                  <div style={{ fontSize: 12, color: '#5a5248' }}>✦ More tools coming soon for DriveSuite members</div>
+                </div>
               </div>
             )}
           </div>
